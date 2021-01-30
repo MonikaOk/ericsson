@@ -23,11 +23,21 @@ class Bin_Number(Number):
         self.__number = bin_number
 
     def dec_number(self):
-        return int(self.__number, 2)
+        try:
+            if self.__number == 'd' or self.__number == 'b' or self.__number == 'e':  return None
+            dec_number = int(self.__number, 2)
+        except :
+            return None
+        return dec_number
 
     def bin_number(self):
-        return self.__number
+        try:
+            if self.__number == 'd' or self.__number == 'b' or self.__number == 'e':  return None
+            bin_number = self.__number
+        except:
+            return None
 
+        return bin_number
 
 class Decimal_Number(Number):
     def __init__(self, dec_number):
@@ -38,9 +48,7 @@ class Decimal_Number(Number):
             if self.__number == 'd' or self.__number == 'b' or self.__number == 'e':  return None
             dec_number = int(self.__number)
             if dec_number < 0: return None
-        except ValueError:
-            return None
-        except TypeError:
+        except :
             return None
 
         return dec_number
@@ -49,10 +57,8 @@ class Decimal_Number(Number):
 
         try:
             if self.__number == 'd' or self.__number == 'b' or self.__number == 'e':  return None
-            bin_number = bin(self.dec_number())[2:]
-        except ValueError:
-            return None
-        except TypeError:
+            bin_number = bin(int(self.__number))[2:]
+        except:
             return None
 
         return bin_number

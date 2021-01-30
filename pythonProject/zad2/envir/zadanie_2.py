@@ -23,14 +23,15 @@ class error_change_program(Exception):
 def do_program():
     version = present_menu()
 
-    while version
-    number = get_numer(version)
+    while version is not 'e':
 
-    if number is not None:
-        print("Liczba {l} w systemie binarnym to {b}".format(l=number.dec_number(), b=number.bin_number()))
+        number = get_numer(version)
 
-    # dec_to_bin()
-    # bin_to_dec()
+        if number is not None and number.bin_number() is not None and number.dec_number() is not None:
+            print("Liczba {l} w systemie binarnym to {b}".format(l=number.dec_number(), b=number.bin_number()))
+
+
+
 
 def present_menu():
     print("------------------------------------------------------------------------")
@@ -53,12 +54,7 @@ def get_numer(version):
         print("Naciśnij 'e' aby wzakończyć działanie programu")
         print("------------------------------------------------------------------------\n")
 
-        liczba = input("Wpisz liczbę w systemie dziesiętnym: ")
-        if liczba == 'd' or liczba == 'b' or liczba == 'e':
-            return liczba
-        else:
-            return Decimal_Number(liczba)
-
+        return get_dec_num()
 
     elif version is 'b':
         print("------------------------------------------------------------------------")
@@ -67,18 +63,36 @@ def get_numer(version):
         print("Naciśnij 'e' aby wzakończyć działanie programu")
         print("------------------------------------------------------------------------\n")
 
-        liczba = input("Wpisz liczbę w systemie binarnym: ")
-
-        if liczba == 'd' or liczba == 'b' or liczba == 'e':
-            return liczba
-        else:
-            return Bin_Number(liczba)
+        return get_bin_num()
 
     elif version is 'e':
         sys.exit(0)
     else:
         print("Wybrana opcja jest niedostępna.\n")
-        return version
+        present_menu()
+        return None
+
+def get_dec_num():
+    liczba = input("Wpisz liczbę w systemie dziesiętnym: ")
+    if liczba == 'd' or liczba == 'b' or liczba == 'e':
+        # get_numer(liczba)
+        return None, version
+    else:
+        return Decimal_Number(liczba), version
+
+
+def get_bin_num():
+    liczba = input("Wpisz liczbę w systemie binarnym: ")
+
+    if liczba == 'd' or liczba == 'b' or liczba == 'e':
+        # get_numer(liczba)
+        version = liczba
+        return None, version
+    else:
+        return Bin_Number(liczba), version
+
+
+
 
 
 
