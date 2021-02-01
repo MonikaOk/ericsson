@@ -27,8 +27,8 @@ def do_program():
 
         number = get_numer(version)
 
-        if number is not None and number.bin_number() is not None and number.dec_number() is not None:
-            print("Liczba {l} w systemie binarnym to {b}".format(l=number.dec_number(), b=number.bin_number()))
+        # if number is not None and number.bin_number() is not None and number.dec_number() is not None:
+        print("Liczba {l} w systemie binarnym to {b}".format(l=number.dec_number(), b=number.bin_number()))
 
 
 
@@ -76,9 +76,9 @@ def get_dec_num():
     liczba = input("Wpisz liczbę w systemie dziesiętnym: ")
     if liczba == 'd' or liczba == 'b' or liczba == 'e':
         # get_numer(liczba)
-        return None, version
+        return None
     else:
-        return Decimal_Number(liczba), version
+        return Decimal_Number(liczba)
 
 
 def get_bin_num():

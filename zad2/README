@@ -1,0 +1,9 @@
+funkcja aplikacja.start_program() wykonuje działąnie programu
+
+prezentuje ona menu startowe i pozwala na wybór trybu działania
+Przelicznie wartości następuje po wyborze trybu
+Program pyta o wartość w danym systemie dopóki nie wpisze się jej poprawnie
+
+Po każdej konwersji program pyta ponownie o tryb działania aplikacji
+
+Koniec programu gdy w menu użytwkonik kliknie e
